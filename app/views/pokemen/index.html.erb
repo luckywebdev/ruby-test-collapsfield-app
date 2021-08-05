@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pokemen</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Element</th>
+      <th>Age</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pokemen.each do |pokeman| %>
+      <tr>
+        <td><%= pokeman.name %></td>
+        <td><%= pokeman.element %></td>
+        <td><%= pokeman.age %></td>
+        <td><%= link_to 'Show', pokeman %></td>
+        <td><%= link_to 'Edit', edit_pokeman_path(pokeman) %></td>
+        <td><%= link_to 'Destroy', pokeman, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pokeman', new_pokeman_path %>

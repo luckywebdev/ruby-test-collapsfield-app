@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+  <h1>Test Site</h1>
+  <div>
+    <h3 id="question">Question-1 : The bird is plant or animal?</h3>
+  </div>
+  <div>
+    <input type="button" name="lock" id="lock" value="Answer: animal" onclick="clickFunction1()" style="width: 100px; height: 40px;">
+    <input type="button" name="unlock" id="unlock" value="Answer: plant" onclick="clickFunction2()" style="width: 100px; height: 40px;">
+  </div>
+    
+  <div>
+    <p id="text"></p>
+  </div>
+</body>
+<script type="text/javascript">
+  function clickFunction1(){
+    document.getElementById("text").innerHTML = "You are correct!";
+    Android.lock();
+  }
+  function clickFunction2(){
+    document.getElementById("text").innerHTML = "Your answer is wrong\n Please try again";
+
+    setTimeout(function(){ formatData() }, 3000);    
+    
+    Android.unlock();
+  }
+  
+  function formatData() {    
+    document.getElementById("text").innerHTML = "";    
+    document.getElementById("question").innerHTML = "Question-2 : The sky is blue or red?"
+    document.getElementById("lock").value = "Answer: blue"
+    document.getElementById("unlock").value = "Answer: red"
+  }
+</script>
+  
+</html>
